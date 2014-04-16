@@ -1,0 +1,12 @@
+inputEncoding = UTF-8
+outputEncoding = UTF-8
+
+NormalizationTable = xcf:///seg/norm.simp.utf8
+normTableEncoding = UTF-8
+
+sighanCorporaDict = xcf:///
+sighanPostProcessing = true
+
+serDictionary = xcf:///seg/dict-chris6.ser.gz
+
+model = xcf:///seg/ctb/ctb.gz#dd
