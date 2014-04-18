@@ -13,11 +13,11 @@ stan-cn-* family are including:
 
 Comments, reviews, bug reports and patches are welcomed.
 
-
 Current version
 ----------------
 
-Current version is 0.0.4.
+
+Current version is 0.0.4 and based on Stanford CoreNLP 3.2.0 with minor fixes.
 
 including below dependency:
 
