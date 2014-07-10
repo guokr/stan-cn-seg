@@ -1,39 +1,33 @@
 package com.guokr.nlp.seg;
 
-import java.io.FileInputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-
 import com.guokr.protocol.Protocols;
-import com.guokr.util.MultipleGZIPOutputStream;
 import com.guokr.util.Settings;
 
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 
 public class SegWrapper {
 
-	static Protocols protocols = Protocols.INSTANCE;
-	static Settings defaults = Settings.load("xcf:///seg/defaults.using.prop");
+    static Protocols         protocols = Protocols.INSTANCE;
+    static Settings          defaults  = Settings.load("xcf:///seg/defaults.using.prop");
 
-	private CRFClassifier<?> classifier;
+    private CRFClassifier<?> classifier;
 
-	public SegWrapper() {
-		this(null);
-	}
+    public SegWrapper() {
+        this(null);
+    }
 
-	public SegWrapper(Settings settings) {
-		Settings props = new Settings(settings, defaults);
-		String model = props.getProperty("model");
-		try {
-			this.classifier = CRFClassifier.getClassifier(model, props);
+    public SegWrapper(Settings settings) {
+        Settings props = new Settings(settings, defaults);
+        String model = props.getProperty("model");
+        try {
+            this.classifier = CRFClassifier.getClassifier(model, props);
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+    }
 
-		} catch (Exception e) {
-			e.printStackTrace(System.err);
-		}
-	}
-
-	public String segment(String text) {
-		return this.classifier.classifyToString(text).trim();
-	}
+    public String segment(String text) {
+        return this.classifier.classifyToString(text).trim();
+    }
 
 }

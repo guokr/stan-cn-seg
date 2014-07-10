@@ -1,6 +1,5 @@
 package com.guokr.nlp.seg;
 
-
 public enum __SEG__ {
 
     INSTANCE;
